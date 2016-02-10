@@ -1,38 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="listDistances">
-        <item>km => mi</item>
-        <item>mi => km</item>
-        <item>m => ft</item>
-        <item>ft => m</item>
-        <item>m => ft in</item>
-        <item>ft in => m</item>
-        <item>cm => in</item>
-        <item>in => cm</item>
-        <item>m² => sq ft</item>
-        <item>sq ft => m²</item>
+        <item>cm</item>
+        <item>m</item>
+        <item>km</item>
+        <item>in</item>
+        <item>ft</item>
+        <item>mi</item>
     </string-array>
-    <string-array name="listCapacites">
-        <item>L => gal</item>
-        <item>gal => L</item>
-        <item>mL => cup</item>
-        <item>cup => mL</item>
-        <item>mL => tbs</item>
-        <item>tbs => mL</item>
-        <item>mL => fl oz</item>
-        <item>fl oz => mL</item>
-        <item>mi/gal => L/100 km</item>
-        <item>L/100 km => mi/gal</item>
+    <string-array name="listVolumes">
+        <item>mL</item>
+        <item>L</item>
+        <item>tbs</item>
+        <item>cup</item>
+        <item>fl oz</item>
+        <item>gal</item>
     </string-array>
     <string-array name="listPoids">
-        <item>kg => lb</item>
-        <item>lb => kg</item>
-        <item>g => oz</item>
-        <item>oz => g</item>
+        <item>g</item>
+        <item>kg</item>
+        <item>lb</item>
+        <item>oz</item>
     </string-array>
     <string-array name="listTemperatures">
-        <item>C => F</item>
-        <item>F => C</item>
+        <item>C</item>
+        <item>F</item>
     </string-array>
 
 </resources>

@@ -11,7 +11,8 @@
     <string name="button9">9</string>
     <string name="buttonDecimal">.</string>
     <string name="button0">0</string>
-    <string name="buttonMinus">-</string>
+    <string name="buttonMinus">+/-</string>
     <string name="buttonCE">CE</string>
     <string name="buttonDel">DEL</string>
+    <string name="buttonSwitch"><![CDATA[<>]]></string>
 </resources>

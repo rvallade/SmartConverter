@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity"
-    android:background="@android:color/background_light">
+    android:background="@android:color/background_dark">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -25,7 +25,7 @@
             android:layout_weight="1"
             android:text="D"
             android:id="@+id/buttonD"
-            android:background="@drawable/button_green"
+            android:background="@drawable/button_black"
             android:textSize="@dimen/button"/>
 
         <Button
@@ -69,10 +69,13 @@
         android:id="@+id/layoutZone1">
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/zone1" />
+            android:textSize="50sp"
+            android:text="0"
+            android:id="@+id/zone1"
+            android:textColor="#ffffff"
+            android:maxLength="10"/>
 
         <Spinner
             android:layout_width="match_parent"
@@ -81,10 +84,13 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="60dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/zone2" />
+            android:textSize="50sp"
+            android:text="0"
+            android:id="@+id/zone2"
+            android:textColor="#ffffff"
+            android:maxLength="10" />
 
         <Spinner
             android:layout_width="match_parent"
@@ -100,6 +106,16 @@
         android:id="@+id/rowCE"
         android:layout_above="@+id/row1"
         android:layout_alignParentLeft="true">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/ButtonText"
+            android:layout_weight="1"
+            android:background="@drawable/button_black"
+            android:id="@+id/buttonSwitch"
+            android:text="@string/buttonSwitch"
+            android:textSize="@dimen/button" />
 
         <Button
             android:layout_width="wrap_content"
