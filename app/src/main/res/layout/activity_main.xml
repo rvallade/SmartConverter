@@ -10,54 +10,77 @@
     tools:context=".MainActivity"
     android:background="@android:color/background_dark">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
         android:id="@+id/layoutButtons">
-
-        <Button
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/ButtonText"
-            android:layout_weight="1"
-            android:text="D"
-            android:id="@+id/buttonD"
-            android:background="@drawable/button_black"
-            android:textSize="@dimen/button"/>
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/ButtonText"
-            android:layout_weight="1"
-            android:text="W"
-            android:id="@+id/buttonW"
-            android:background="@drawable/button_black"
-            android:textSize="@dimen/button"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/ButtonText"
+                android:layout_weight="1"
+                android:text="D"
+                android:id="@+id/buttonD"
+                android:background="@drawable/button_black"
+                android:textSize="@dimen/button"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/ButtonText"
-            android:layout_weight="1"
-            android:text="V"
-            android:id="@+id/buttonV"
-            android:background="@drawable/button_black"
-            android:textSize="@dimen/button"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/ButtonText"
+                android:layout_weight="1"
+                android:text="W"
+                android:id="@+id/buttonW"
+                android:background="@drawable/button_black"
+                android:textSize="@dimen/button"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/ButtonText"
-            android:layout_weight="1"
-            android:text="T°"
-            android:id="@+id/buttonT"
-            android:background="@drawable/button_black"
-            android:textSize="@dimen/button"/>
-    </LinearLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/ButtonText"
+                android:layout_weight="1"
+                android:text="V"
+                android:id="@+id/buttonV"
+                android:background="@drawable/button_black"
+                android:textSize="@dimen/button"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/ButtonText"
+                android:layout_weight="1"
+                android:text="T°"
+                android:id="@+id/buttonT"
+                android:background="@drawable/button_black"
+                android:textSize="@dimen/button"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/ButtonText"
+                android:layout_weight="1"
+                android:text="S"
+                android:id="@+id/buttonS"
+                android:background="@drawable/button_black"
+                android:textSize="@dimen/button"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/ButtonText"
+                android:layout_weight="1"
+                android:text="C"
+                android:id="@+id/buttonC"
+                android:background="@drawable/button_black"
+                android:textSize="@dimen/button"/>
+        </LinearLayout>
+
+    </HorizontalScrollView>
 
     <LinearLayout
         android:orientation="vertical"

@@ -26,5 +26,15 @@
         <item>C</item>
         <item>F</item>
     </string-array>
+    <string-array name="listSurfaces">
+        <item>m²</item>
+        <item>ha</item>
+        <item>sq ft</item>
+        <item>acre</item>
+    </string-array>
+    <string-array name="listConsommations">
+        <item>l/100</item>
+        <item>mi/gal</item>
+    </string-array>
 
 </resources>
