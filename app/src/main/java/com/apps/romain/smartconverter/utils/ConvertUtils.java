@@ -26,6 +26,7 @@ public class ConvertUtils {
             mapConvert.put("TSP", new Converter("0.00492892161458", "202.884135354"));
             mapConvert.put("CUP", new Converter("0.2365882375", "4.22675281986"));
             mapConvert.put("GAL", new Converter("3.785411784", "0.2641720523581484"));
+            mapConvert.put("ML", new Converter("0.001", "1000"));
             mapConvert.put("L", new Converter("1", "1"));
             mapConvert.put("FT3", new Converter("28.316846592", "0.0353146667214886"));
             // poids
@@ -36,21 +37,17 @@ public class ConvertUtils {
             // temperatures
             mapConvert.put("C", new TemperatureConverter(true));
             mapConvert.put("F", new TemperatureConverter(false));
+            // surface
+            mapConvert.put("M2", new Converter("1", "1"));
+            mapConvert.put("HA", new Converter("10000", "0.0001"));
+            mapConvert.put("FT2", new Converter("0.092903", "10.7639"));
+            mapConvert.put("ACRE", new Converter("4046.86", "0.000247105"));
+            // consommation
+            mapConvert.put("L100", new ConsommationConverter());
+            mapConvert.put("MG", new ConsommationConverter());
         }
     }
-    
-    /*public static String convertir(Converter converter, BigDecimal... valueIn) {
-        return converter.convertir(valueIn);
-    }
-    
-    public static String convertirTemperature(BigDecimal valueIn, Converter converter) {
-        return ((TemperatureConverter) converter).convertir(valueIn);
-    }
-    
-    public static String convertirSpecialDistances(BigDecimal valueIn, Converter converter) {
-        return converter.convertir(valueIn);
-    }*/
-    
+
     public static Converter getConverterFromSelectedText(String key){
         return mapConvert.get(key);
     }
@@ -61,19 +58,10 @@ public class ConvertUtils {
     }
 
     public static String convertir(BigDecimal valueToConvert, Converter from, Converter to) {
-        BigDecimal result;
         if (from.equals(to)) {
             return getStringFromBigDecimal(valueToConvert);
         }
 
-        if (from instanceof TemperatureConverter) {
-            return ((TemperatureConverter) from).convertir(valueToConvert);
-        } else {
-            // to reference value
-            result = valueToConvert.multiply(from.getValueInReference());
-            // to the selected unit
-            result = result.multiply(to.getEquivalentInReference());
-        }
-        return getStringFromBigDecimal(result);
+        return getStringFromBigDecimal(from.convertir(valueToConvert, to));
     }
 }

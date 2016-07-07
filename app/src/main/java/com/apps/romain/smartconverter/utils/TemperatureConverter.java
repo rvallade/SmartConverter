@@ -1,6 +1,7 @@
 package com.apps.romain.smartconverter.utils;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class TemperatureConverter extends Converter {
     private boolean celciusToFarenheit = false;
@@ -9,19 +10,17 @@ public class TemperatureConverter extends Converter {
         super();
         celciusToFarenheit = celToFar;
     }
-    
-    public String convertir(BigDecimal valueToConvert) {
-        float result;
-        
+
+    @Override
+    public BigDecimal convertir(BigDecimal valueToConvert, Converter to) {
+        BigDecimal result;
         if (celciusToFarenheit){
-            result = (valueToConvert.floatValue() * 1.8f)+ 32f;
+            result = valueToConvert.multiply(new BigDecimal("1.8")).add(new BigDecimal("32"));
         } else {
-            result = (valueToConvert.floatValue() - 32f)*5/9;
+            result = valueToConvert.min(new BigDecimal("32")).multiply(new BigDecimal("0.5555555556"));
         }
-        
-        result = Float.parseFloat(Double.toString(Math.floor((result * 100.0f) + 0.5f)))/100;
-        
+        result.setScale(2, RoundingMode.HALF_UP);
         // on renvoit le resultat arrondit a 2 decimales
-        return Float.toString(result);
+        return result;
     }
 }

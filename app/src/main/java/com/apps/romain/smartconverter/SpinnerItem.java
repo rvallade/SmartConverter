@@ -1,7 +1,5 @@
 package com.apps.romain.smartconverter;
 
-import com.apps.romain.smartconverter.utils.Converter;
-
 /**
  * Created by Romain on 08/02/2016.
  */

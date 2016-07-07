@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     Button poids;
     Button volumes;
     Button temperatures;
+    Button surfaces;
+    Button consommations;
     boolean isDirect = true;
     boolean deleteTextViewContent = true;
     String textToConvert = null;
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             new SpinnerItem("OZ", "oz"),
     };
     SpinnerItem[] volumesSpinnerItems = {
+            new SpinnerItem("ML", "ml"),
             new SpinnerItem("L", "l"),
             new SpinnerItem("M3", "m3"),
             new SpinnerItem("TBSP", "tbsp"),
@@ -57,6 +60,16 @@ public class MainActivity extends AppCompatActivity {
     SpinnerItem[] temperatureSpinnerItems = {
             new SpinnerItem("C", "C"),
             new SpinnerItem("F", "F")
+    };
+    SpinnerItem[] surfacesSpinnerItems = {
+            new SpinnerItem("M2", "m²"),
+            new SpinnerItem("HA", "ha"),
+            new SpinnerItem("FT2", "ft²"),
+            new SpinnerItem("ACRE", "acre")
+    };
+    SpinnerItem[] consommationsSpinnerItems = {
+            new SpinnerItem("L100", "l/100"),
+            new SpinnerItem("MG", "mpg")
     };
 
     @Override
@@ -71,6 +84,8 @@ public class MainActivity extends AppCompatActivity {
         poids = (Button) findViewById(R.id.buttonW);
         volumes = (Button) findViewById(R.id.buttonV);
         temperatures = (Button) findViewById(R.id.buttonT);
+        surfaces = (Button) findViewById(R.id.buttonS);
+        consommations = (Button) findViewById(R.id.buttonC);
 
         ConvertUtils.initMap();
 
@@ -187,6 +202,8 @@ public class MainActivity extends AppCompatActivity {
         addOnClickListenerForConvertTypeButton(poids, ConvertType.POIDS, weightSpinnerItems, false);
         addOnClickListenerForConvertTypeButton(volumes, ConvertType.VOLUME, volumesSpinnerItems, false);
         addOnClickListenerForConvertTypeButton(temperatures, ConvertType.TEMPERATURE, temperatureSpinnerItems, true);
+        addOnClickListenerForConvertTypeButton(surfaces, ConvertType.SURFACE, surfacesSpinnerItems, false);
+        addOnClickListenerForConvertTypeButton(consommations, ConvertType.CONSOMMATION, consommationsSpinnerItems, false);
 
         units1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -216,7 +233,9 @@ public class MainActivity extends AppCompatActivity {
     private void removeLastCharOfTextViewWithFocus() {
         // we need to remove the last entry of either zone1 or zone2
         deleteTextViewContent = false;
-        if (textToConvert.length() > 0 && !"-".equals(textToConvert)) {
+        if (textToConvert.length() == 1 && !"-".equals(textToConvert)) {
+            textToConvert = "";
+        } else if (textToConvert.length() > 0 && !"-".equals(textToConvert)) {
             textToConvert = textToConvert.substring(0, textToConvert.length() - 1);
         } else if (textToConvert.contains("-")) {
             textToConvert = "-";
@@ -274,6 +293,8 @@ public class MainActivity extends AppCompatActivity {
         volumes.setBackgroundResource(R.drawable.button_black);
         temperatures.setBackgroundResource(R.drawable.button_black);
         poids.setBackgroundResource(R.drawable.button_black);
+        consommations.setBackgroundResource(R.drawable.button_black);
+        surfaces.setBackgroundResource(R.drawable.button_black);
     }
 
     private void addNumberToCorrectTextView(String charToAdd, boolean removeSingleZero) {
@@ -314,11 +335,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void handleTextViewChangeFocus(TextView from, TextView to, boolean isDirectMode) {
-        from.setTypeface(null, Typeface.BOLD);
-        to.setTypeface(null, Typeface.NORMAL);
-        deleteTextViewContent = true;
-        isDirect = isDirectMode;
-        textToConvert = from.getText().toString();
+        // do that only when we actually change the zone in focus
+        if (from.getTypeface() == null || !from.getTypeface().isBold()) {
+            from.setTypeface(null, Typeface.BOLD);
+            to.setTypeface(null, Typeface.NORMAL);
+            deleteTextViewContent = true;
+            isDirect = isDirectMode;
+            textToConvert = from.getText().toString();
+        }
     }
 
     private void doConvert() {
