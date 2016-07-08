@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             new SpinnerItem("ACRE", "acre")
     };
     SpinnerItem[] consommationsSpinnerItems = {
-            new SpinnerItem("L100", "l/100"),
+            new SpinnerItem("L100", "L/100 km"),
             new SpinnerItem("MG", "mpg")
     };
 
@@ -263,6 +263,11 @@ public class MainActivity extends AppCompatActivity {
                     initSpinner(items);
                     selectedConvertType = convertType;
                 }
+                zone1.setText("0");
+                zone2.setText("0");
+                deleteTextViewContent = false;
+                textToConvert = "0";
+
                 // change button background to black
                 setDefaultBackgroundForAllConvertTypeButtons();
                 // change background for current button to green
@@ -361,8 +366,9 @@ public class MainActivity extends AppCompatActivity {
         MySpinnerAdapter mySpinnerAdapter = new MySpinnerAdapter(this, R.layout.my_spinner, items);
         units1.setAdapter(mySpinnerAdapter);
         units2.setAdapter(mySpinnerAdapter);
+        units2.setSelection(1, true);
         selectedUnitFromUnit1 = items[0].getValue();
-        selectedUnitFromUnit2 = selectedUnitFromUnit1;
+        selectedUnitFromUnit2 = items[1].getValue();
     }
 
 
